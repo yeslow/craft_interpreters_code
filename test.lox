@@ -1,11 +1,57 @@
-fun outer() {
-  var x = "outside";
-  fun inner() {
-    print x;
-  }
+// var x = "global";
+// fun outer() {
+//   var x = "outer";
+//   fun inner() {
+//     print x;
+//   }
+//   inner();
+// }
+// outer();
 
-  return inner;
+// class Doughnut {
+//   cook() {
+//     print "Fry until golden brown.";
+//     inner();
+//     print "Place in a nice box.";
+//   }
+// }
+
+// class BostonCream < Doughnut {
+//   cook() {
+//     print "Pipe full of custard and coat with chocolate.";
+//   }
+// }
+
+// BostonCream().cook();
+
+class Zoo {
+  init() {
+    this.aardvark = 1;
+    this.baboon   = 1;
+    this.cat      = 1;
+    this.donkey   = 1;
+    this.elephant = 1;
+    this.fox      = 1;
+  }
+  ant()    { return this.aardvark; }
+  banana() { return this.baboon; }
+  tuna()   { return this.cat; }
+  hay()    { return this.donkey; }
+  grass()  { return this.elephant; }
+  mouse()  { return this.fox; }
 }
 
-var closure = outer();
-closure();
+var zoo = Zoo();
+var sum = 0;
+var start = clock();
+while (sum < 1000) {
+  sum = sum + zoo.ant()
+            + zoo.banana()
+            + zoo.tuna()
+            + zoo.hay()
+            + zoo.grass()
+            + zoo.mouse();
+}
+
+print clock() - start;
+print sum;
